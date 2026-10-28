@@ -1,5 +1,5 @@
 /* وزن‌یار PWA service worker */
-const CACHE_NAME = 'vaznyar-app-v1';
+const CACHE_NAME = 'vaznyar-app-v4';
 const APP_FILES = [
   './index.html',
   './manifest.webmanifest',

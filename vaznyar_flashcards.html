@@ -129,6 +129,24 @@
     @media(max-width:1000px){.app{grid-template-columns:246px minmax(0,1fr)}.sidebar{padding:20px 12px}.content{padding-inline:22px}.hero-art{display:none}}
     @media(max-width:760px){.app{display:block}.sidebar{position:fixed;right:0;top:0;bottom:0;width:min(300px,85vw);z-index:24;transform:translateX(105%);transition:transform .25s;box-shadow:var(--shadow)}.sidebar.open{transform:translateX(0)}.mobile-menu{display:inline-flex}.content{padding:0 14px 40px}.topbar{height:66px}.topbar .date-label{display:none}.topbar-left .action-btn:not(.primary){padding:10px}.hero{padding:23px 1px 16px}.hero h1{font-size:25px}.summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.mini-stat{padding:10px;gap:5px;border-radius:13px;display:block}.stat-icon{width:28px;height:28px;font-size:14px;border-radius:9px;margin-bottom:6px}.stat-val{font-size:17px}.stat-label{font-size:9px}.study-panel{border-radius:20px;padding:14px}.section-head h2{font-size:18px}.control-row{padding:18px 0 12px}.segment button{font-size:10px;padding:7px 9px}.select-box{width:100%;justify-content:space-between}.card-stage,.flashcard{min-height:310px}.flashcard-inner{height:310px}.card-face{padding:26px 17px;border-radius:20px}.card-main.poetry{font-size:19px}.card-main.weight{font-size:17px}.nav-controls{grid-template-columns:1fr 72px 1fr}.nav-controls .outline-btn{font-size:12px;padding:10px 8px}.index-panel{border-radius:0}.overlay{padding:0}.index-head{padding:14px}.index-body{padding:14px}.entry{grid-template-columns:minmax(0,1fr);gap:8px}.entry-actions{align-items:flex-start}.entry-actions button{width:100%}.section-footer{display:block}.next-section{margin-top:9px}.review-actions button{padding:9px 10px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+    /* اعلان نصب وزن‌یار؛ تا قبل از نصب و فقط در محیط مرورگر */
+    .install-notice{position:fixed;inset-inline-start:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:90;width:min(455px,calc(100vw - 28px));display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid #bfdfd4;border-radius:20px;background:linear-gradient(135deg,#ffffff 0%,#effaf4 100%);color:#164b51;box-shadow:0 18px 54px #123e3826;direction:rtl;animation:installNoticeIn .28s ease-out}
+    .install-notice-mark{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#0b7773,#164f60);color:#fff;font-size:23px;font-weight:950;box-shadow:0 6px 15px #0b686e26}
+    .install-notice-copy{flex:1;min-width:0;padding-top:1px}
+    .install-notice-kicker{font-size:10px;font-weight:900;letter-spacing:.02em;color:#57857e;margin-bottom:3px}
+    .install-notice-title{display:block;font-size:14px;line-height:1.7;font-weight:950;color:#154c55}
+    .install-notice-description{margin:3px 0 10px;color:#557476;font-size:11px;line-height:1.9}
+    .install-notice-primary{border:0;border-radius:11px;padding:9px 13px;background:#0b686e;color:#fff;font:inherit;font-size:11px;font-weight:900;box-shadow:0 5px 12px #0b686e20;cursor:pointer;transition:transform .15s,background .15s}
+    .install-notice-primary:hover{background:#07555b;transform:translateY(-1px)}
+    .install-notice-close{width:27px;height:27px;flex:0 0 27px;border:1px solid #d8e9e2;border-radius:9px;background:#ffffffc9;color:#66837f;font-size:18px;line-height:1;cursor:pointer}
+    .install-notice-close:hover{background:#e5f5ed;color:#194f54}
+    .install-notice-help{margin-top:10px;padding:10px 11px;border:1px solid #dcebe4;border-radius:12px;background:#fff;color:#45696d}
+    .install-notice-help p{margin:0;font-size:11px;line-height:2;white-space:pre-line}
+    .install-notice-help-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+    .install-notice-secondary{border:1px solid #d7e8df;border-radius:10px;padding:7px 10px;background:#f6fbf8;color:#426c6b;font:inherit;font-size:10px;font-weight:850;cursor:pointer}
+    @keyframes installNoticeIn{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @media(max-width:520px){.install-notice{inset-inline-start:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));width:calc(100vw - 20px);gap:9px;padding:11px;border-radius:17px}.install-notice-mark{width:38px;height:38px;flex-basis:38px;border-radius:12px;font-size:20px}.install-notice-title{font-size:13px}.install-notice-description{font-size:10px;margin-bottom:8px}}
+    @media(prefers-reduced-motion:reduce){.install-notice{animation:none}}
     [hidden]{display:none!important}
     .page-tabs{display:flex;gap:7px;align-items:center;justify-content:center;flex-wrap:wrap}
     .page-tab{border:1px solid #d9e5e2;background:#fff;color:#42636b;border-radius:13px;padding:9px 14px;font-size:12px;font-weight:850;white-space:nowrap;transition:all .18s}
@@ -283,6 +301,23 @@
   </style>
 </head>
 <body>
+  <aside id="installNotice" class="install-notice" role="region" aria-label="نصب برنامهٔ وزن‌یار" hidden>
+    <div class="install-notice-mark" aria-hidden="true">و</div>
+    <div class="install-notice-copy">
+      <div class="install-notice-kicker">نسخهٔ همراه وزن‌یار</div>
+      <strong class="install-notice-title" id="installNoticeTitle">وزن‌یار همیشه دمِ دستت باشد</strong>
+      <p class="install-notice-description" id="installNoticeDescription">برای مرور راحت‌تر، آن را مثل یک برنامه روی گوشی یا رایانه نصب کن.</p>
+      <button class="install-notice-primary" id="installNoticeAction" type="button">⬇ نصب وزن‌یار</button>
+      <div class="install-notice-help" id="installNoticeHelp" hidden>
+        <p id="installNoticeHelpText">راهنمای نصب</p>
+        <div class="install-notice-help-actions">
+          <button class="install-notice-primary" id="installNoticeDone" type="button">نصب کردم</button>
+          <button class="install-notice-secondary" id="installNoticeLater" type="button">بعداً</button>
+        </div>
+      </div>
+    </div>
+    <button class="install-notice-close" id="installNoticeClose" type="button" aria-label="بستن اعلان نصب" title="بعداً">×</button>
+  </aside>
   <div class="app">
     <aside class="sidebar" id="sidebar">
       <div class="brand"><div class="brand-icon">و</div><div><strong>وزن‌یار</strong><small>دفتر مرور شعر فارسی</small></div></div>
@@ -301,7 +336,6 @@
       </header>
 
       <div class="global-actions" id="globalActions">
-        <button class="action-btn" id="pwaInstallButton" type="button" aria-label="نصب وزن‌یار">⬇ نصب وزن‌یار</button>
         <button class="action-btn" id="indexButton">☷ فهرست کامل</button>
         <button class="action-btn" id="addPoemButton">＋ افزودن شعر</button>
         <button class="action-btn primary" id="randomButton">⤨ آزمون تصادفی</button>
@@ -444,6 +478,9 @@
     {id:'mos-branches',name:'شاخه‌های مستفعلن',page:'ارکان و نشانه‌های هجایی',tag:'رکن مادر: مستفعلن',tone:'violet',description:'شاخه‌های ثبت‌شدهٔ رکن مستفعلن و نشانه‌های هجایی آن‌ها.'}
   ];
   const SECTION_BY_ID = new Map([...POEM_SECTIONS, ...ARKAN_SECTIONS].map(section => [section.id, section]));
+  // این وزن در جزوه در دو بخش آمده؛ شعرها و وضعیت مرورِ دو مدخل با هم همگام‌اند.
+  const SYNCED_METER_GROUPS = [['h04','d03']];
+  const linkedMeterIds = id => SYNCED_METER_GROUPS.find(group => group.includes(id)) || [id];
   const knownModes = ['ordered','shuffle-section','shuffle-all','unanswered','weak','known'];
   const validDirections = ['poem','meter','mixed'];
 
@@ -670,6 +707,15 @@ poem('uneven','n11','مفعولُ مفاعلن مفاعیلن فع',[
     editing: null,
     toastTimer: null
   };
+  // Restore a shared review state for duplicated meter entries.
+  for (const group of SYNCED_METER_GROUPS) {
+    const knownInGroup = group.some(id => state.known.has(id));
+    const weakInGroup = group.some(id => state.weak.has(id));
+    for (const id of group) {
+      if (knownInGroup) { state.known.add(id); state.weak.delete(id); }
+      else if (weakInGroup) { state.weak.add(id); state.known.delete(id); }
+    }
+  }
   let ALL_RECORDS = [];
   let BY_ID = new Map();
 
@@ -682,12 +728,48 @@ poem('uneven','n11','مفعولُ مفاعلن مفاعیلن فع',[
       isUserMeter: false
     }));
     for (const item of state.userVerses) {
-      const row = baseRows.find(candidate => candidate.id === item.targetId && candidate.kind === 'poem');
-      if (row) {
-        row.verses.push(item.text);
-        row.verseItems.push({id:item.id, text:item.text, custom:true, type:'attached', targetId:item.targetId});
+      const linkedIds = linkedMeterIds(item.targetId);
+      const rows = baseRows.filter(candidate => linkedIds.includes(candidate.id) && candidate.kind === 'poem');
+      for (const row of rows) {
+        if (!row.verseItems.some(verse => verse.id === item.id)) {
+          row.verses.push(item.text);
+          row.verseItems.push({id:item.id, text:item.text, custom:true, type:'attached', targetId:item.targetId});
+        }
       }
     }
+    // Combine the source poems and custom poems for the duplicated meter so either entry
+    // shows the same complete list. Keep original poem entries and custom IDs intact.
+    for (const group of SYNCED_METER_GROUPS) {
+      const rows = baseRows.filter(row => group.includes(row.id) && row.kind === 'poem');
+      if (rows.length < 2) continue;
+      const merged = [];
+      const seen = new Set();
+      for (const row of rows) for (const item of row.verseItems) {
+        const key = item.custom ? `custom:${item.id}` : `source:${normalize(item.text)}`;
+        if (!seen.has(key)) { seen.add(key); merged.push({...item}); }
+      }
+      for (const row of rows) {
+        row.verseItems = merged.map(item => ({...item}));
+        row.verses = row.verseItems.map(item => item.text);
+        row.note = [row.note, 'نکته: این وزن در جزوه دو بار آمده است؛ شعرها و وضعیت تمرینِ دو بخش با هم همگام‌اند.'].filter(Boolean).join(' ');
+      }
+    }
+    // Mirror every user-added verse attached to a built-in meter into the
+    // personal section as its own practice card, while keeping it attached to
+    // the original meter in the normal section too.
+    const personalAttachedRows = state.userVerses.map(item => {
+      const original = baseRows.find(candidate => candidate.id === item.targetId && candidate.kind === 'poem');
+      if (!original) return null;
+      return {
+        group:'custom', id:`my-verse-${item.id}`, kind:'poem', weight:original.weight,
+        alternates:[...(original.alternates || [])],
+        syllabic:original.syllabic || '', alternateSyllabic:[...(original.alternateSyllabic || [])],
+        note:'شعر شخصی؛ این کارت در کتابخانهٔ شخصی تو ذخیره شده است.',
+        verses:[item.text],
+        verseItems:[{id:item.id, text:item.text, custom:true, type:'attached', targetId:item.targetId}],
+        isUserMeter:false, isPersonalVerse:true, personalVerseId:item.id, originalTargetId:item.targetId
+      };
+    }).filter(Boolean);
     const customRows = state.userMeters.filter(meter => meter.verses.length).map(meter => ({
       group:'custom', id:meter.id, kind:'poem', weight:meter.weight,
       alternates:Array.isArray(meter.alternates) ? [...meter.alternates] : [],
@@ -698,7 +780,7 @@ poem('uneven','n11','مفعولُ مفاعلن مفاعیلن فع',[
       verseItems:meter.verses.map(item => ({id:item.id, text:item.text, custom:true, type:'meter', meterId:meter.id})),
       isUserMeter:true
     }));
-    ALL_RECORDS = [...baseRows, ...customRows];
+    ALL_RECORDS = [...baseRows, ...personalAttachedRows, ...customRows];
     BY_ID = new Map(ALL_RECORDS.map(row => [row.id, row]));
     for (const page of ['poem','arkan']) {
       const pageState = state.pages[page];
@@ -785,9 +867,9 @@ poem('uneven','n11','مفعولُ مفاعلن مفاعیلن فع',[
       if (page === 'arkan') return pageRows;
       return pageRows.filter(row => row.kind === 'poem');
     }
-    if (mode === 'unanswered') return pageRows.filter(row => !state.known.has(row.id) && !state.weak.has(row.id));
-    if (mode === 'weak') return pageRows.filter(row => state.weak.has(row.id));
-    if (mode === 'known') return pageRows.filter(row => state.known.has(row.id));
+    if (mode === 'unanswered') return pageRows.filter(row => !linkedMeterIds(row.id).some(id => state.known.has(id) || state.weak.has(id)));
+    if (mode === 'weak') return pageRows.filter(row => linkedMeterIds(row.id).some(id => state.weak.has(id)));
+    if (mode === 'known') return pageRows.filter(row => linkedMeterIds(row.id).some(id => state.known.has(id)));
     return pageRows.filter(row => row.group === ps.section);
   }
   function resetQueue(page, mode, focusId = null, opts = {}) {
@@ -1260,12 +1342,13 @@ poem('uneven','n11','مفعولُ مفاعلن مفاعیلن فع',[
   }
   function mark(page, kind) {
     const row = currentRow(page); if (!row) return;
+    const ids = linkedMeterIds(row.id);
     if (kind === 'known') {
-      state.known.add(row.id); state.weak.delete(row.id); toast('این کارت به فهرست «بلدم» اضافه شد.');
+      ids.forEach(id => { state.known.add(id); state.weak.delete(id); }); toast('این کارت به فهرست «بلدم» اضافه شد.');
     } else if (kind === 'weak') {
-      state.weak.add(row.id); state.known.delete(row.id); toast('این کارت برای مرور دوباره ذخیره شد.');
+      ids.forEach(id => { state.weak.add(id); state.known.delete(id); }); toast('این کارت برای مرور دوباره ذخیره شد.');
     } else {
-      state.known.delete(row.id); state.weak.delete(row.id); toast('وضعیت این کارت به «نزده‌ام» برگشت.');
+      ids.forEach(id => { state.known.delete(id); state.weak.delete(id); }); toast('وضعیت این کارت به «نزده‌ام» برگشت.');
     }
     save(); renderChapters(); renderCard(page); updateStats();
   }
@@ -1540,10 +1623,20 @@ poem('uneven','n11','مفعولُ مفاعلن مفاعیلن فع',[
       const editedIndex = targetRow.verseItems?.findIndex(item=>item.id===editingVerseId);
       if (editedIndex >= 0) verseIndex = editedIndex;
     }
+    // After saving a verse attached to a built-in meter, open its personal
+    // library card so the user can immediately find it under «وزن‌ها و شعرهای من».
+    let displayRow = targetRow;
+    if (!targetRow.isUserMeter) {
+      const personalId = wasEditing && editingVerseId
+        ? editingVerseId
+        : [...state.userVerses].reverse().find(item => item.targetId === targetId && item.text === text)?.id;
+      const personalRow = personalId ? BY_ID.get(`my-verse-${personalId}`) : null;
+      if (personalRow) { displayRow = personalRow; verseIndex = 0; }
+    }
     const pageStatePoem = pageState('poem');
-    pageStatePoem.section = targetRow.group;
+    pageStatePoem.section = displayRow.group;
     state.page = 'poem';
-    resetQueue('poem','ordered',targetId,{example:verseIndex});
+    resetQueue('poem','ordered',displayRow.id,{example:verseIndex});
     showPage('poem');
     $('customPanel').hidden = false;
     renderWeightOptions(targetRow.isUserMeter ? 'existingWeightSelect' : 'existingWeightSelect');
@@ -1678,42 +1771,112 @@ poem('uneven','n11','مفعولُ مفاعلن مفاعیلن فع',[
   </script>
   <script>
     (() => {
-      const installButton = document.getElementById('pwaInstallButton');
+      const notice = document.getElementById('installNotice');
+      const action = document.getElementById('installNoticeAction');
+      const close = document.getElementById('installNoticeClose');
+      const help = document.getElementById('installNoticeHelp');
+      const helpText = document.getElementById('installNoticeHelpText');
+      const done = document.getElementById('installNoticeDone');
+      const later = document.getElementById('installNoticeLater');
+      const INSTALLED_KEY = 'vaznyar:pwa-installed:v1';
+      const DISMISSED_KEY = 'vaznyar:pwa-install-dismissed:v1';
       let installPrompt = null;
-      const isInstalled = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      let noticeTimer = null;
+
+      const isStandalone = () => window.matchMedia('(display-mode: standalone)').matches ||
+        window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true;
+      const storageGet = (kind, key) => {
+        try { return (kind === 'local' ? window.localStorage : window.sessionStorage).getItem(key); }
+        catch (_) { return null; }
+      };
+      const storageSet = (kind, key, value) => {
+        try { (kind === 'local' ? window.localStorage : window.sessionStorage).setItem(key, value); }
+        catch (_) {}
+      };
+      const isMarkedInstalled = () => storageGet('local', INSTALLED_KEY) === '1';
+      const isDismissedThisSession = () => storageGet('session', DISMISSED_KEY) === '1';
+      const suppressNotice = () => isStandalone() || isMarkedInstalled();
+
+      function hideNotice() {
+        notice.hidden = true;
+        help.hidden = true;
+        if (noticeTimer) { clearTimeout(noticeTimer); noticeTimer = null; }
+      }
+      function markInstalled() {
+        storageSet('local', INSTALLED_KEY, '1');
+        installPrompt = null;
+        hideNotice();
+      }
+      function showNotice() {
+        if (suppressNotice() || isDismissedThisSession()) { hideNotice(); return; }
+        notice.hidden = false;
+      }
+      function showManualHelp() {
+        const isAppleMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        helpText.textContent = isAppleMobile
+          ? 'در Safari، دکمهٔ اشتراک‌گذاری را بزن و «Add to Home Screen» را انتخاب کن. پس از افزودن، «نصب کردم» را بزن تا اعلان در بازدیدهای بعدیِ سایت هم پنهان بماند.'
+          : 'در منوی مرورگر، گزینهٔ «نصب برنامه» یا «افزودن به صفحهٔ اصلی» را انتخاب کن. اگر این گزینه را نمی‌بینی، سایت را با HTTPS و مرورگر سازگار باز کن. پس از نصب، «نصب کردم» را بزن تا اعلان در بازدیدهای بعدیِ سایت هم پنهان بماند.';
+        help.hidden = false;
+        action.textContent = 'بستن راهنما';
+      }
+      function hideManualHelp() {
+        help.hidden = true;
+        action.textContent = '⬇ نصب وزن‌یار';
+      }
+
+      // اگر نصب قبلاً در همین مبدأ ثبت شده یا صفحه در حالت برنامه باز است، حتی لحظه‌ای اعلان نشان نده.
+      if (suppressNotice()) hideNotice();
 
       window.addEventListener('beforeinstallprompt', event => {
         event.preventDefault();
         installPrompt = event;
-        installButton.hidden = false;
+        if (!suppressNotice()) showNotice();
       });
-      window.addEventListener('appinstalled', () => {
-        installPrompt = null;
-        installButton.textContent = '✓ وزن‌یار نصب شده';
-        installButton.setAttribute('aria-label', 'وزن‌یار نصب شده است');
-      });
-      installButton.addEventListener('click', async () => {
-        if (isInstalled()) {
-          alert('وزن‌یار روی این دستگاه نصب شده است.');
-          return;
-        }
+
+      window.addEventListener('appinstalled', markInstalled);
+
+      action.addEventListener('click', async () => {
+        if (suppressNotice()) { hideNotice(); return; }
         if (installPrompt) {
-          installPrompt.prompt();
-          try {
-            const choice = await installPrompt.userChoice;
-            if (choice && choice.outcome === 'accepted') installButton.textContent = '✓ درخواست نصب شد';
-          } catch (_) {}
+          const promptEvent = installPrompt;
           installPrompt = null;
+          try {
+            await promptEvent.prompt();
+            const choice = await promptEvent.userChoice;
+            if (choice && choice.outcome === 'accepted') {
+              // نشانگر در همان مبدأ ذخیره می‌شود تا بازدید سایت در مرورگر هم اعلان نداشته باشد.
+              markInstalled();
+            } else {
+              action.textContent = 'راهنمای نصب';
+              showManualHelp();
+            }
+          } catch (_) {
+            showManualHelp();
+          }
           return;
         }
-        alert(`برای نصب وزن‌یار:
-
-در Chrome یا Edge، منوی مرورگر را باز کن و گزینهٔ «نصب برنامه» یا «افزودن به صفحهٔ اصلی» را بزن.
-
-در iPhone یا iPad، سایت را با Safari باز کن، دکمهٔ اشتراک‌گذاری را بزن و «Add to Home Screen» را انتخاب کن.
-
-برای نمایش گزینهٔ نصب، سایت باید با نشانی امن HTTPS باز شده باشد.`);
+        if (help.hidden) showManualHelp();
+        else hideManualHelp();
       });
+
+      done.addEventListener('click', markInstalled);
+      later.addEventListener('click', hideManualHelp);
+      close.addEventListener('click', () => {
+        storageSet('session', DISMISSED_KEY, '1');
+        hideNotice();
+      });
+
+      // تغییر حالت نمایش را هم دنبال کن؛ در نسخهٔ نصب‌شده اعلان همیشه پنهان می‌ماند.
+      const displayMode = window.matchMedia('(display-mode: standalone)');
+      const onDisplayModeChange = () => { if (isStandalone()) markInstalled(); };
+      if (displayMode.addEventListener) displayMode.addEventListener('change', onDisplayModeChange);
+      else if (displayMode.addListener) displayMode.addListener(onDisplayModeChange);
+
+      // کمی فرصت می‌دهیم رویداد رسمی نصب مرورگر برسد؛ در مرورگرهای دیگر هم راهنمای دستی موجود است.
+      if (!suppressNotice()) {
+        noticeTimer = window.setTimeout(showNotice, 1200);
+      }
 
       if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
         window.addEventListener('load', () => {
